@@ -85,12 +85,14 @@ def main():
             print(f'epoch: {epoch}, cost: {current_cost}')
 
         # Average gradients over all samples
+        # del C / del W^(l) = 1 / n * sum_x del C(sample=x) / del W^(l)
+        # del C / del b^(l) = 1 / n * sum_x del C(sample=x) / del Wb^(l)
         grad_weights_2_average = numpy.mean(grad_weights_2_samples, axis=0)
         grad_weights_1_average = numpy.mean(grad_weights_1_samples, axis=0)
         grad_bias_2_average = numpy.mean(grad_bias_2_samples, axis=0)
         grad_bias_1_average = numpy.mean(grad_bias_1_samples, axis=0)
 
-        # Update weights and biases
+        # Update weights and biases with gradient decent algorithm
         weight_matrix_2 = weight_matrix_2 - eta * grad_weights_2_average
         weight_matrix_1 = weight_matrix_1 - eta * grad_weights_1_average
         bias_2 = bias_2 - eta * grad_bias_2_average
