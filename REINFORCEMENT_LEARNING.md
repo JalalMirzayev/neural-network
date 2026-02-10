@@ -1,0 +1,29 @@
+# Overview
+
+- Reinforcement Learning
+  - Model Based:
+    - Policy Iteration
+    - Value Iteration
+  - Model Free:
+    - Monte-Carlo
+    - SARSA
+    - Q-Learning
+    - TD(N)
+    - TD(Lambda) + Eligibility Trees
+- Deep Reinforcement Learning
+  - Value Based
+    - Deep-Q
+    - Double Deep-Q
+    - Dueling Deep-Q
+  - Policy-Based
+    - Policy Networks (REINFORCE)
+    - REINFORCE w/Baseline
+  - Sampling/Estimators
+    - Prioritized Experience Replays
+    - PER + SumTree
+    - Generalized Advantage Estimators
+  - Actor-Critic
+    - Vanilla Actor-Critic
+    - Synchronous Actor-Critic (A2C)
+    - Trust Region Policy Optimization (TRPO)
+    - Proximal Policy Optimization (PPO)

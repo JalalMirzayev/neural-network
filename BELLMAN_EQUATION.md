@@ -53,17 +53,20 @@ $$
 
 ## Future reward
 
+The future reward requires to calculate the return $G_{t+1} = R_{t+2} + \gamma R_{t+3} + \gamma^2 R_{t+4} + \ldots$.
+Hence, we need to de-marginalize on $a, s'$, and $r$. As $a, s', r$ have to have happened such that we.
+
 $$
 \begin{align}
 \mathbb{E}\left[G_{t+1} | S_t = s \right] &= \sum_g g P(g|S_t=s)\\
-&= \sum_g g \sum_{a, s', r}P(g, |S_t=s)\\
-&= \sum_g g \sum_{a, s', r}P(g|s, a, s', r)P(r, s', a|s)\\
+&= \sum_g g \sum_{a, s', r}P(g, a, s', r |S_t=s)\\
+&= \sum_g g \sum_{a, s', r}P(g|s, a, s', r)P(a, s', r|s)\\
 \end{align}
 $$
 
 With the Markov Property
 $$P(x_t| x_{t-1}, x_{t-2}, x_{t-3}, \ldots) = P(x_t|x_{t-1})$$
-we can eliminate $s$, $a$, and $r$ from the first probability.
+we can eliminate $s$, $a$, and $r$ from the first probability. This is possible as $G_{t+1}=g$ is referencing state $s'$ and its transition to $s''$. Hence, we do not care about $s$ the action $a$ which took us to $s'$ and the immediate reward $r$ which was released immediately before $s'$.
 
 $$
 \begin{align}
